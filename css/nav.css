@@ -1,28 +1,25 @@
-/* =========================================
-   全局顶部毛玻璃导航栏
-   ========================================= */
+
 .global-nav {
     position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
     height: 60px;
-    /* 半透明宣纸白 + 毛玻璃滤镜 (完美复刻你的参考图) */
     background: rgba(253, 250, 243, 0.75); 
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     border-bottom: 1px solid rgba(0, 0, 0, 0.05);
     
-    /* 保证它永远在所有 GSAP 动画的最顶层 */
+
     z-index: 99999; 
     
     display: flex;
     align-items: center;
-    justify-content: center; /* 核心内容居中 */
+    justify-content: center; 
     font-family: 'HuiwenMincho', "STXingkai", serif;
 }
 
-/* 中间链接组 */
+
 .nav-links {
     display: flex;
     align-items: center;
@@ -30,7 +27,7 @@
 
 .nav-links a {
     text-decoration: none;
-    color: #5c4b37; /* 古朴的深褐色 */
+    color: #5c4b37; 
     font-size: 18px;
     letter-spacing: 2px;
     margin: 0 20px;
@@ -39,18 +36,17 @@
 
 .nav-links a:hover,
 .nav-links a.active {
-    color: #b58d44; /* 悬停时变成质感金色 */
+    color: #b58d44; 
     transform: scale(1.05);
 }
 
-/* 链接之间的分割线 (竖线或点) */
 .nav-divider {
     color: #d1c7b7;
     font-size: 14px;
     user-select: none;
 }
 
-/* 右侧音乐控制组 (绝对定位到右边，不影响中间居中) */
+
 .nav-controls {
     position: absolute;
     right: 5%;
@@ -75,7 +71,7 @@
     color: #b58d44;
 }
 
-/* 简单的音乐图标旋转动画 */
+
 .music-icon {
     display: inline-block;
     animation: spin 4s linear infinite;

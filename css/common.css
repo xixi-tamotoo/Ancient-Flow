@@ -1,33 +1,22 @@
-﻿/* =========================================
-   1. 注册自定义字体
-   ========================================= */
+﻿
 @font-face {
     font-family: 'HuiwenMincho';
     src: url('../assets/fonts/Huiwen-mincho.ttf') format('truetype');
-    /* 如果你的实际文件是 .otf，记得把这里改成 .otf 和 opentype */
     font-weight: normal;
     font-style: normal;
 }
 
-/* =========================================
-   2. 定义全局字体变量 (绝招)
-   ========================================= */
 :root {
-    /* 标题专用字体：汇文朝体优先，华文行楷备用 */
     --font-title: 'HuiwenMincho', "STXingkai", "华文行楷", serif;
     
-    /* 正文专用字体：思源宋体优先，楷体备用 */
     --font-body: "Noto Serif SC", "SimSun", "楷体", "KaiTi", serif;
 }
-/* =========================================
-   全局样式 (common.css)
-   ========================================= */
 
-/* 1. 清除默认边距，定义 CSS 变量 */
+
 :root {
-    --primary-color: #3e3a39; /* 墨黑 */
-    --accent-color: #c04851; /* 朱红 */
-    --text-color: #f2eada; /* 宣纸白/米白 */
+    --primary-color: #3e3a39; 
+    --accent-color: #c04851; 
+    --text-color: #f2eada; 
 }
 
 * {
@@ -37,25 +26,25 @@
 }
 
 body {
-    /* 推荐的古风中文字体栈 */
+    
     font-family: "Noto Serif SC", "Songti SC", "SimSun", serif;
-    background-color: #1a1a1a; /* 在图片没加载出来前的深色底色 */
+    background-color: #1a1a1a; 
     color: var(--text-color);
-    overflow-x: hidden; /* 严禁页面出现横向滚动条 */
+    overflow-x: hidden; 
 }
 
-/* 2. 隐藏系统丑陋的滚动条 (为了更好的沉浸感) */
+
 ::-webkit-scrollbar {
     width: 0px;
     background: transparent;
 }
 
-/* 3. 顶部导航/返回按钮基础样式 */
+
 .top-nav {
     position: fixed;
     top: 20px;
     left: 20px;
-    z-index: 9999; /* 保证它永远在最上层 */
+    z-index: 9999; 
 }
 
 .back-btn {

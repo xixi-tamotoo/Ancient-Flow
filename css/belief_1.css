@@ -1,4 +1,4 @@
-@font-face { font-family: 'HuiwenMincho'; src: url('../../assets/fonts/Huiwen-mincho.ttf') format('truetype'); }
+@font-face { font-family: 'HuiwenMincho'; src: url('../assets/fonts/Huiwen-mincho.ttf') format('truetype'); }
 
 #section-belief-1 { --font-title: 'HuiwenMincho', "STXingkai", serif; --font-body: "Noto Serif SC", "SimSun", "楷体", "KaiTi", serif; position: relative; z-index: 10; }
 

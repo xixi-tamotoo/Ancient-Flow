@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'HuiwenMincho';
-    src: url('../../assets/fonts/Huiwen-mincho.ttf') format('truetype'); 
+    src: url('../assets/fonts/Huiwen-mincho.ttf') format('truetype'); 
 }
 
 :root {
@@ -13,15 +13,13 @@
     z-index: 20; 
 }
 
-/* =========================================
-   ✨ 核心物理过渡：从第一幕底边色到第二幕底色的渐变
-   ========================================= */
+
 #section-belief-2::before {
     content: "";
     display: block;
     width: 100vw;
-    height: 100vh; /* 撑开一整屏的空间 */
-    /* ✨ 完美色彩接力：由你提取的 #6c97a7 向下渐变到 #6b8e9b */
+    height: 100vh; 
+
     background: linear-gradient(to bottom, #6c97a7 0%, #6b8e9b 100%);
 }
 

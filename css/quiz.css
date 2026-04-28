@@ -1,6 +1,4 @@
-/* =========================================
-   古风答题按钮 (长卷末尾浮现)
-   ========================================= */
+
 .quiz-trigger-btn {
     position: absolute;
     bottom: 8%;
@@ -18,7 +16,7 @@
     cursor: pointer;
     box-shadow: 0 5px 15px rgba(0,0,0,0.2);
     transition: all 0.3s ease;
-    opacity: 0; /* 默认隐藏，由 GSAP 控制出现 */
+    opacity: 0; 
     visibility: hidden;
 }
 
@@ -29,9 +27,6 @@
     transform: translateX(-50%) scale(1.05);
 }
 
-/* =========================================
-   古风答题弹窗
-   ========================================= */
 .quiz-modal {
     position: fixed;
     top: 0; left: 0; width: 100vw; height: 100vh;
@@ -49,7 +44,6 @@
     position: relative;
     width: 600px;
     
-    /* ✨ 核心修改 1：删除了这里原本固定的 background，把颜色控制权交给了下面的主题类 */
     
     border-radius: 24px; 
     border: 2px solid rgba(253, 250, 243, 0.3); 
@@ -57,9 +51,7 @@
     box-shadow: 0 20px 50px rgba(0,0,0,0.4);
 }
 
-/* =========================================
-   ✨ 核心修改 2：四个板块的专属半透明主题色
-   ========================================= */
+
 /* 民俗与信仰 */
 .quiz-content.theme-belief { background: rgba(139, 182, 186, 0.85); } 
 
@@ -69,21 +61,19 @@
 /* 交通与连接  */
 .quiz-content.theme-traffic { background: rgba(175, 189, 167, 0.85); } 
 
-/* 商业与贸易 (Trade) - 烟波蓝 */
+/* 商业与贸易 */
 .quiz-content.theme-trade { background: rgba(237, 221, 221, 0.85); }
 
-/* ✨ 新增：白色角图片的 CSS，确保它贴在框的边缘且不凸出 */
-/* 将图片移入 .quiz-content 内部后使用绝对定位 */
+
 .quiz-tip {
     position: absolute;
-    /* ✨ 核心修复：调整坐标，让它精准贴在框的右下角 */
     right: -20px; 
     bottom: -20px;
     width: 60px; 
     height: 60px;
-    z-index: 10; /* 保证在所有内容之上 */
-    pointer-events: none; /* 允许点击穿透 */
-    filter: drop-shadow(0 4px 10px rgba(0,0,0,0.2)); /* 增加一点光影感 */
+    z-index: 10; 
+    pointer-events: none; 
+    filter: drop-shadow(0 4px 10px rgba(0,0,0,0.2)); 
 }
 
 .quiz-close {
