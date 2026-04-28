@@ -1,0 +1,56 @@
+@font-face {
+    font-family: 'HuiwenMincho';
+    src: url('../../assets/fonts/Huiwen-mincho.ttf') format('truetype'); 
+}
+
+:root {
+    --font-title: 'HuiwenMincho', "STXingkai", serif;
+    --font-body: "Noto Serif SC", "SimSun", "楷体", "KaiTi", serif;
+}
+
+#section-belief-3 { 
+    position: relative; 
+    z-index: 30; 
+}
+
+/* =========================================
+   ✨ 核心物理过渡：一整屏的深色方块推上来
+   ========================================= */
+#section-belief-3::before {
+    content: "";
+    display: block;
+    width: 100vw;
+    height: 100vh; 
+    background-color: #6b8e9b; /* 与第二幕相同的纯深色空间 */
+}
+
+#section-belief-3 .stage-container { 
+    position: relative; width: 100vw; height: 100vh; overflow: hidden; background-color: #6b8e9b; 
+}
+
+#section-belief-3 .bg-img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; }
+#section-belief-3 .right-bridge { position: absolute; right: -35%; top: 60%; transform: translateY(-50%); width: 100%; z-index: 1; }
+#section-belief-3 .base-bridge { display: block; width: 100%; height: auto; object-fit: contain; mix-blend-mode: screen; }
+
+#section-belief-3 .bridge-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: contain; opacity: 0; filter: brightness(1.3) contrast(1.2); transition: opacity 0.5s ease; pointer-events: none; }
+#section-belief-3 .bridge-overlay.active { opacity: 1; }
+
+#section-belief-3 .left-panel { position: absolute; left: 8%; top: 50%; transform: translateY(-50%); width: 35%; display: flex; flex-direction: column; gap: 40px; z-index: 10; }
+#section-belief-3 .circles-row { display: flex; flex-direction: row; justify-content: space-between; align-items: center; }
+#section-belief-3 .circle-item { position: relative; cursor: pointer; }
+#section-belief-3 .circle-wrap { width: 140px; height: 140px; border-radius: 50%; border: 2px solid #fdfaf3; box-shadow: 0 0 0 4px rgba(253, 250, 243, 0.4), 0 10px 20px rgba(0,0,0,0.15); overflow: hidden; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); animation: breathing 3.5s infinite ease-in-out alternate; }
+#section-belief-3 .circle-item:nth-child(2) .circle-wrap { animation-delay: 1.2s; }
+#section-belief-3 .circle-item:nth-child(3) .circle-wrap { animation-delay: 2.4s; }
+#section-belief-3 .circle-wrap img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+
+@keyframes breathing { 0% { transform: scale(0.96); box-shadow: 0 0 0 4px rgba(253, 250, 243, 0.3), 0 5px 15px rgba(0,0,0,0.1); } 100% { transform: scale(1.04); box-shadow: 0 0 0 4px rgba(253, 250, 243, 0.6), 0 15px 25px rgba(0,0,0,0.2); } }
+
+#section-belief-3 .circle-item:hover .circle-wrap { animation-play-state: paused; transform: scale(1.15); box-shadow: 0 0 0 4px rgba(253, 250, 243, 0.9), 0 15px 30px rgba(0,0,0,0.3); }
+#section-belief-3 .circle-item:hover .circle-wrap img { transform: scale(1.1); }
+#section-belief-3 .circles-row:hover .circle-item:not(:hover) { opacity: 0.4; filter: grayscale(50%); }
+
+#section-belief-3 .text-display { position: relative; min-height: 250px; }
+#section-belief-3 .info-text { position: absolute; top: 0; left: 0; width: 100%; opacity: 0; visibility: hidden; transform: translateY(15px); transition: all 0.5s ease; }
+#section-belief-3 .info-text.active { opacity: 1; visibility: visible; transform: translateY(0); }
+#section-belief-3 .info-text h3 { font-family: var(--font-title); font-size: 35px; color: #e5c185; margin: 0 0 15px 0; letter-spacing: 3px; border-bottom: 1px solid rgba(229, 193, 133, 0.3); padding-bottom: 10px; display: inline-block; }
+#section-belief-3 .info-text p { font-family: var(--font-body); font-size: 21px; line-height: 2.1; color: #1a1a1a; margin: 0; text-align: justify; letter-spacing: 1.5px; }

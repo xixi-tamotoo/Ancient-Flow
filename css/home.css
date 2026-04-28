@@ -1,0 +1,45 @@
+@font-face {
+    font-family: 'HuiwenMincho';
+    src: url('../../assets/fonts/Huiwen-mincho.ttf') format('truetype'); 
+    font-weight: normal; font-style: normal;
+}
+
+
+body, html { margin: 0; padding: 0; overflow: hidden; background-color: #f0eadd; }
+.stage-container { position: relative; width: 100vw; height: 100vh; overflow: hidden; }
+
+.bg-paper { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; }
+
+.center-gallery { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 10; visibility: hidden; opacity: 0; }
+.title-gallery { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 20; visibility: hidden; opacity: 0; pointer-events: none; }
+
+.center-img, .title-group img, .btn-visual { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; }
+
+.center-img { opacity: 0; transition: opacity 0.8s ease; }
+.center-img.active { opacity: 1; }
+
+.title-group { position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; transition: all 0.6s ease; }
+.title-group.active { opacity: 1; }
+
+/* ✨ 核心修复：彻底去除 mix-blend-mode，靠 z-index 物理遮盖！ */
+.en-title { z-index: 1 !important; }
+.main-title { z-index: 10 !important; filter: drop-shadow(0 5px 15px rgba(0,0,0,0.1)); }
+.sub-title { z-index: 20 !important; }
+
+/* 按钮层 */
+.visual-btns-layer { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 100; visibility: hidden; opacity: 0; }
+
+.btn-visual { transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1), opacity 0.6s ease; }
+
+#btn-visual-traffic { transform-origin: 15% 85%; }
+#btn-visual-trade   { transform-origin: 40% 85%; }
+#btn-visual-social  { transform-origin: 65% 85%; }
+#btn-visual-belief  { transform-origin: 85% 85%; }
+
+.btn-visual.hovered { transform: scale(1.08) translateY(-10px) !important; filter: drop-shadow(0 15px 25px rgba(229,193,133,0.8)); }
+
+/* 加个 important 确保透明度优先 */
+.btn-visual.dimmed { opacity: 0.35 !important; }
+
+.hitbox-nav { position: absolute; bottom: 0; left: 5%; width: 90%; height: 28%; display: flex; justify-content: space-around; align-items: flex-end; z-index: 110; }
+.hitbox { width: 22%; height: 100%; cursor: pointer; }

@@ -1,0 +1,43 @@
+@font-face {
+    font-family: 'HuiwenMincho';
+    src: url('../../assets/fonts/Huiwen-mincho.ttf') format('truetype'); 
+}
+
+:root {
+    --font-title: 'HuiwenMincho', "STXingkai", serif;
+    --font-body: "Noto Serif SC", "SimSun", "楷体", "KaiTi", serif;
+}
+
+#section-belief-2 { 
+    position: relative; 
+    z-index: 20; 
+}
+
+/* =========================================
+   ✨ 核心物理过渡：从第一幕底边色到第二幕底色的渐变
+   ========================================= */
+#section-belief-2::before {
+    content: "";
+    display: block;
+    width: 100vw;
+    height: 100vh; /* 撑开一整屏的空间 */
+    /* ✨ 完美色彩接力：由你提取的 #6c97a7 向下渐变到 #6b8e9b */
+    background: linear-gradient(to bottom, #6c97a7 0%, #6b8e9b 100%);
+}
+
+#section-belief-2 .stage-container { 
+    position: relative; width: 100vw; height: 100vh; overflow: hidden; background-color: #6b8e9b; 
+}
+
+#section-belief-2 .center-title { position: absolute; top: 10%; left: 50%; transform: translateX(-50%); z-index: 100; text-align: center; }
+#section-belief-2 .center-title h2 { font-family: var(--font-title); font-size: 50px; color: #e5c185; margin: 0; letter-spacing: 10px; text-shadow: 0 4px 15px rgba(0,0,0,0.3); }
+
+#section-belief-2 .left-beasts { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: 520px; height: 520px; display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; gap: 20px; z-index: 10; align-items: center; justify-items: center; }
+#section-belief-2 .beast-item img { max-width: 95%; max-height: 95%; object-fit: contain; mix-blend-mode: screen; filter: drop-shadow(0 0 0 transparent); transform: scale(1); transition: all 0.3s ease-out; }
+
+#section-belief-2 .right-content { position: absolute; left: 48%; top: 50%; transform: translateY(-50%); width: 45%; height: 90%; opacity: 0; visibility: hidden; }
+#section-belief-2 .beast-panel { position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 30px; opacity: 0; visibility: hidden; }
+#section-belief-2 .text-box { width: 90%; text-align: left; }
+#section-belief-2 .text-box h3 { font-family: var(--font-title); font-size: 32px; color: #e5c185; margin: 0 0 15px 0; letter-spacing: 3px; border-bottom: 1px solid rgba(229, 193, 133, 0.3); padding-bottom: 10px; display: inline-block; }
+#section-belief-2 .text-box p { font-family: var(--font-body); font-size: 19px; line-height: 1.8; color: #fdfaf3; text-align: justify; letter-spacing: 1.5px; margin: 0; }
+#section-belief-2 .real-img { position: relative; max-width: 75%; max-height: 35vh; opacity: 0; transform: scale(0.9); }

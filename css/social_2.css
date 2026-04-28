@@ -1,0 +1,43 @@
+/* =========================================
+   ✨ 核心修复：加入负边距实现物理重叠
+   ========================================= */
+#section-social-2 { 
+    --font-title: 'HuiwenMincho', "STXingkai", serif; 
+    --font-body: "Noto Serif SC", "SimSun", "楷体", "KaiTi", serif; 
+    --theme-dark: #fdfaf3; 
+
+    position: relative;
+    margin-top: -30vh; /* 👈 向上偏移 30% 屏幕高度，强行与第一幕重叠！ */
+    z-index: 10;       /* 保证它盖在第一幕的尾巴上方 */
+}
+
+#section-social-2 .stage-container { position: relative; width: 100vw; height: 100vh; overflow: hidden; }
+
+#section-social-2 .bridge-bg { 
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; 
+    /* 👈 遮罩拉长到 30vh，这 30vh 刚好是与上一幕重叠的部分，实现完美溶图 */
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 30vh, black 100%);
+    mask-image: linear-gradient(to bottom, transparent 0%, black 30vh, black 100%);
+}
+
+#section-social-2 .character-group { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 2; opacity: 0; pointer-events: none; }
+#section-social-2 .character-img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; pointer-events: none; }
+
+#section-social-2 .hotspot-group { position: absolute; z-index: 10; pointer-events: auto; }
+#section-social-2 .hotspot-main { top: 90%; left: 45%; }
+#section-social-2 .hotspot-women { top: 73%; left: 25%; }
+#section-social-2 .hotspot-storyteller { top: 55%; left: 45%; }
+#section-social-2 .hotspot-council { top: 60%; left: 75%; }
+
+#section-social-2 .pulse-dot { position: relative; width: 16px; height: 16px; background-color: #ffffff; border-radius: 50%; cursor: pointer; animation: glowPulse 2s infinite alternate ease-in-out; }
+#section-social-2 .pulse-dot::after { content: ""; position: absolute; top: -5px; left: -5px; right: -5px; bottom: -5px; border: 1px solid rgba(255, 255, 255, 0.9); border-radius: 50%; }
+
+@keyframes glowPulse { 0% { transform: scale(0.8); box-shadow: 0 0 10px rgba(255, 255, 255, 0.5); } 100% { transform: scale(1.2); box-shadow: 0 0 25px rgba(255, 255, 255, 1); } }
+
+#section-social-2 .tooltip-panel { position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%) translateY(20px); width: 700px; opacity: 0; pointer-events: none; transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1); }
+#section-social-2 .hotspot-group:hover .tooltip-panel { opacity: 1; transform: translateX(-50%) translateY(0px); pointer-events: auto; }
+
+#section-social-2 .tooltip-bg { width: 100%; height: auto; display: block; filter: drop-shadow(0 15px 25px rgba(0,0,0,0.3)); }
+#section-social-2 .tooltip-content { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 80%; color: #fff; font-family: var(--font-body); }
+#section-social-2 .tooltip-content h2 { font-family: var(--font-title); font-size: 36px; font-weight: normal; text-align: center; margin-bottom: 20px; letter-spacing: 2px;}
+#section-social-2 .tooltip-content p { font-size: 18px; line-height: 2; text-align: justify; letter-spacing: 1px;}

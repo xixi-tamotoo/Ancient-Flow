@@ -1,0 +1,37 @@
+@font-face { font-family: 'HuiwenMincho'; src: url('../../assets/fonts/Huiwen-mincho.ttf') format('truetype'); }
+
+#section-belief-1 { --font-title: 'HuiwenMincho', "STXingkai", serif; --font-body: "Noto Serif SC", "SimSun", "楷体", "KaiTi", serif; position: relative; z-index: 10; }
+
+/* 吸收底色，不再污染 body */
+#section-belief-1 .stage-container { position: relative; width: 100vw; height: 100vh; overflow: hidden; background-color: #b8c6ca; }
+
+#section-belief-1 .scene-group { position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0.6; z-index: 1; }
+#section-belief-1 .bg-img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; }
+#section-belief-1 .bridge-img { position: absolute; bottom: -10%; left: 0; width: 100%; height: auto; z-index: 2; pointer-events: none; }
+#section-belief-1 .mark { position: absolute; opacity: 0; z-index: 5; pointer-events: none; }
+#section-belief-1 .hand-mark { top: 76%; left: 32%; width: 5%; transform: rotate(-10deg); filter: contrast(1.2); }
+#section-belief-1 .hoof-mark { top: 30%; left: 51%; width: 30%; }
+#section-belief-1 .rut-mark { top: 45%; left: 72%; width: 40%; transform: rotate(0deg); filter: invert(1) contrast(1.5); mix-blend-mode: multiply; }
+
+#section-belief-1 .center-text { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 65%; z-index: 100; background: rgba(255, 255, 255, 0.4); backdrop-filter: blur(10px); padding: 40px 60px; border-radius: 15px; border: 1px solid rgba(255, 255, 255, 0.3); box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+#section-belief-1 .center-text h2 { font-family: var(--font-title); font-size: 46px; color: #2c3e50; text-align: center; margin: 0 0 25px 0; letter-spacing: 15px; text-shadow: 2px 2px 5px rgba(255, 255, 255, 0.8); border-bottom: 1px solid rgba(44, 62, 80, 0.2); padding-bottom: 20px; }
+#section-belief-1 .center-text p { font-family: var(--font-body); font-size: 20px; line-height: 2.2; text-align: justify; letter-spacing: 2px; color: #2c3e50; margin: 0; }
+
+#section-belief-1 .hotspots-container { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 110; visibility: hidden; opacity: 0; }
+#section-belief-1 .hotspot-btn { position: absolute; width: 2.5%; cursor: pointer; animation: btnPulse 1.8s infinite alternate ease-in-out; }
+#section-belief-1 .hotspot-btn img { width: 100%; height: auto; display: block; }
+#section-belief-1 .hotspot-btn:hover { animation: none; transform: translate(-50%, -50%) scale(1.2); filter: drop-shadow(0 0 20px rgba(255, 255, 255, 1)); }
+
+@keyframes btnPulse { 0% { transform: translate(-50%, -50%) scale(0.9); filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.5)); } 100% { transform: translate(-50%, -50%) scale(1.15); filter: drop-shadow(0 0 18px rgba(255, 255, 255, 1)); } }
+
+#section-belief-1 .hover-panel { position: absolute; z-index: 120; width: 560px; height: 230px; display: flex; align-items: center; justify-content: center; padding: 25px 40px; box-sizing: border-box; opacity: 0; visibility: hidden; transform: translateY(15px); transition: all 0.4s ease-out; }
+#section-belief-1 .show-panel { opacity: 1; visibility: visible; transform: translateY(0); }
+#section-belief-1 .panel-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: url('../../assets/images/belief/文本框.png'); background-size: 100% 100%; z-index: 1; }
+#section-belief-1 .char-img { position: relative; z-index: 2; height: 90%; margin-right: 25px; flex-shrink: 0; }
+#section-belief-1 .panel-text { position: relative; z-index: 2; flex-grow: 1; }
+#section-belief-1 .panel-text h3 { font-family: var(--font-title); font-size: 28px; color: #e5c185; margin: 0 0 15px 0; letter-spacing: 2px; }
+#section-belief-1 .panel-text p { font-family: var(--font-body); font-size: 17px; line-height: 1.7; color: #fdfaf3; margin: 0; text-align: justify; }
+
+#section-belief-1 .panel-luban { bottom: 25%; left: 28%; }
+#section-belief-1 .panel-guolao { bottom: 50%; left: 52%; }
+#section-belief-1 .panel-chai { bottom: 45%; right: 15%; }

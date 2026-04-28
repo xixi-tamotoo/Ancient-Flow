@@ -1,0 +1,147 @@
+@font-face {
+    font-family: 'HuiwenMincho';
+    src: url('../../assets/fonts/Huiwen-mincho.ttf') format('truetype'); 
+    font-weight: normal; font-style: normal;
+}
+
+#section-3-shigong {
+    --font-title: 'HuiwenMincho', "STXingkai", serif;
+    --font-body: "Noto Serif SC", "SimSun", "楷体", "KaiTi", serif;
+    --theme-green: #527e55; 
+    --theme-gold: #e2c073; 
+    --theme-dark: #fdfaf3; 
+}
+
+body, html { margin: 0; padding: 0; overflow-x: hidden; background-color: #0f1011 !important; }
+
+.stage-1-container { position: relative; width: 100vw; height: 100vh; overflow: hidden; }
+
+/* =========================================
+   1. 幕布垂直分割
+   ========================================= */
+.split-image-wrapper { position: absolute; width: 100%; height: 100%; z-index: 5; pointer-events: none; }
+#section-3-shigong .half-img {
+    position: absolute; width: 100%; height: 100%;
+    background-image: url('../assets/images/traffic/通济背景.jpg'); 
+    background-size: cover; background-position: center;
+    will-change: transform;
+}
+.img-left-part { clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%); }
+.img-right-part { clip-path: polygon(50% 0, 100% 0, 100% 100%, 50% 100%); }
+
+.title-group {
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+    z-index: 10; width: 550px; height: 550px; pointer-events: none;
+}
+.center-title { width: 100%; height: 100%; position: absolute; display: flex; justify-content: center; align-items: center; }
+
+.circle-title-bg { 
+    position: absolute; width: 550px; height: 550px; z-index: 1; 
+    background-color: var(--theme-green) !important; border: 4px solid var(--theme-gold); border-radius: 50%; box-sizing: border-box;
+}
+.title-text { position: relative; z-index: 2; text-align: center; color: #fff !important; font-family: var(--font-title); }
+.title-text h1 { font-size: 100px; margin: 0; font-weight: normal; letter-spacing: 15px; text-indent: 15px; }
+.title-text p { font-size: 48px; margin: 10px 0 0 0; font-weight: normal; letter-spacing: 8px; text-indent: 8px; }
+
+.carriage-wrapper { position: absolute; left: -290px; bottom: 50px; width: 400px; z-index: 2; pointer-events: none; }
+.carriage-img { width: 125%; height: auto; filter: drop-shadow(0 10px 15px rgba(0,0,0,0.4)); }
+
+/* =========================================
+   2. 长卷大画布 (核心修复：倒 L 型动线)
+   ========================================= */
+.world-camera { position: absolute; top: 0; left: 0; width: 100vw; height: 100vh; z-index: 1; overflow: hidden; }
+
+.world-canvas {
+    /* 【核心修复】：初始镜头停在底部的 -100vh 处，即左下角 */
+    position: absolute; left: 0; top: -100vh; 
+    width: 200vw; height: 200vh; 
+    background-image: url('../assets/images/traffic/背景3.jpg');
+    background-size: cover; background-position: center;
+    will-change: transform;
+    backface-visibility: hidden; 
+}
+
+.scene { 
+    position: absolute; width: 100vw; height: 100vh; overflow: hidden; 
+    transform-origin: center center; 
+    will-change: transform, opacity; 
+}
+
+/* 【修复：网格重排，石拱桥左下，集市右下，驿道右上】 */
+.scene-1-bridge   { left: 0;      top: 100vh; }  /* 左下 */
+.scene-2-market   { left: 100vw;  top: 100vh; }  /* 右下 */
+.scene-3-postroad { left: 100vw;  top: 0; }      /* 右上 */
+
+.text-panel { position: absolute; z-index: 5; color: var(--theme-dark) !important; font-family: var(--font-body); }
+.text-panel h2 { 
+    font-family: var(--font-title); 
+
+    font-size: 32px; 
+    margin-bottom: 15px; 
+    font-weight: normal; 
+    letter-spacing: 2px; 
+}
+.text-panel p { font-size: 20px; line-height: 2; text-align: justify; letter-spacing: 1px; }
+
+/* =========================================
+   3. 场景内部资产排版
+   ========================================= */
+.scene-1-bridge .text-panel { top: 10%; left: 8%; width: 50%; }
+.asset-bridge { position: absolute; bottom: -5%; left: -5%; width: 110%; height: auto; }
+
+.scene-2-market .text-panel { bottom: 15%; left: 8%; width: 25%; }
+.asset-market { position: absolute; top: 5%; right: -5%; width: 105%; height: auto; }
+
+/* 【核心修复：大幅放大驿道素材】 */
+.scene-3-postroad .text-panel { top: 40%; left: 32%; width: 35%; }
+
+/* 远景山脉 */
+.asset-mountains { 
+    position: absolute; top: -10%; right: -5%; 
+    width: 100%; height: auto; z-index: 1; 
+}
+/* 近景驿道*/
+.asset-road { 
+    position: absolute; bottom: -10%; left: -30%; 
+    width: 110%; height: auto; z-index: 2; 
+}
+/* =========================================
+   4. 极致精致感：氛围微动效
+   ========================================= */
+
+/* 1. 马车：模拟在古道上行进时的轻微颠簸感 */
+.carriage-img {
+    animation: carriageBump 0.6s infinite alternate ease-in-out;
+}
+@keyframes carriageBump {
+    0% { transform: translateY(0px) rotate(0deg); }
+    100% { transform: translateY(-4px) rotate(-1deg); }
+}
+
+/* 2. 远景山脉：加入极其缓慢的上下浮动，模拟云海中的呼吸感 */
+.asset-mountains {
+    animation: slowBreath 6s infinite alternate ease-in-out;
+}
+@keyframes slowBreath {
+    0% { transform: translateY(0px) scale(1); }
+    100% { transform: translateY(-12px) scale(1.02); }
+}
+
+/* 3. 集市城镇：模拟夜晚万家灯火摇曳的暖色光晕 */
+.asset-market {
+    animation: lanternGlow 4s infinite alternate ease-in-out;
+}
+@keyframes lanternGlow {
+    0% { filter: drop-shadow(0 0 5px rgba(226, 192, 115, 0)); }
+    100% { filter: drop-shadow(0 0 35px rgba(226, 192, 115, 0.4)); }
+}
+
+/* 4. 驿道近景：让道路有一种缓慢的延伸感 */
+.asset-road {
+    animation: roadStretch 5s infinite alternate ease-in-out;
+    transform-origin: bottom center;
+}
+@keyframes roadStretch {
+    0% { transform: scaleY(1); }
+    100% { transform: scaleY(1.03); }
+}

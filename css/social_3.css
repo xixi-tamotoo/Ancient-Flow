@@ -1,0 +1,61 @@
+#section-social-3 { 
+    --font-title: 'HuiwenMincho', "STXingkai", serif; 
+    --font-body: "Noto Serif SC", "SimSun", "楷体", "KaiTi", serif; 
+    
+    position: relative;
+    margin-top: -40vh; /* 保持向上重叠 40% 的屏幕，留下充足的过渡空间 */
+    z-index: 20;
+}
+
+#section-social-3 .stage-container { 
+    position: relative; width: 100vw; height: 100vh; overflow: hidden; 
+    /* ✨ 核心修复：彻底透明！不要任何渐变色背景！ */
+    background-color: transparent; 
+}
+
+#section-social-3 .night-sky-img { 
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; 
+    /* ✨ 核心修复：删掉 mask-image！让夜空图的顶部黑底结结实实地铺满，再也不会漏出白边 */
+}
+
+#section-social-3 .moon-panel { position: absolute; bottom: -50%; left: 50%; transform: translateX(-50%); width: 55vw; z-index: 1; opacity: 0; transition: all 1.2s cubic-bezier(0.25, 1, 0.5, 1); }
+#section-social-3 .moon-bg { width: 100%; height: auto; display: block; }
+#section-social-3 .moon-text { position: absolute; top: 40%; left: 50%; transform: translate(-50%, -50%); width: 70%; color: #3a2e24; font-family: var(--font-body); opacity: 0; transition: opacity 0.6s ease; pointer-events: none; }
+#section-social-3 .moon-text h2 { font-family: var(--font-title); font-size: 36px; font-weight: normal; margin-bottom: 20px; letter-spacing: 6px; color: #2c251d; border-bottom: 1px solid rgba(58, 46, 36, 0.2); display: table; padding-bottom: 10px; margin: 0 auto 20px auto; }
+#section-social-3 .moon-text p { font-size: 19px; line-height: 2; text-align: justify; letter-spacing: 2px; }
+
+#section-social-3 .scene-wrapper { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 3; transition: transform 1.5s cubic-bezier(0.25, 1, 0.5, 1); }
+#section-social-3 .bridge-img { position: absolute; bottom: -28%; left: 0%; width: 140%; height: auto; pointer-events: none; }
+#section-social-3 .pedestrians-img { position: absolute; bottom: -54%; left: 0; width: 140%; height: auto; opacity: 0; transition: opacity 1.5s ease-in-out; pointer-events: none; }
+
+#section-social-3 .sky-lantern { position: absolute; z-index: 2; opacity: 0; pointer-events: none; transition: all 2s ease-in-out; }
+#section-social-3 .sl-1 { width: 50%; left: 0%; bottom: -10%; }
+#section-social-3 .sl-2 { width: 50%; left: 45%; bottom: -30%; }
+
+#section-social-3 .lantern-group { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 5; pointer-events: none; }
+#section-social-3 .lantern { position: absolute; width: 6%; transform-origin: top center; pointer-events: auto; cursor: pointer; animation: swing 4s infinite alternate ease-in-out, glow 3s infinite alternate ease-in-out; }
+#section-social-3 .lantern-1 { top: 80%; left: 5%; animation-delay: 0s, 0s; }
+#section-social-3 .lantern-2 { top: 60%; left: 40%; animation-delay: 0.5s, 0.8s; }
+#section-social-3 .lantern-3 { top: 80%; left: 78%; animation-delay: 1s, 0.4s; }
+#section-social-3 .lantern img { width: 90%; height: auto; display: block; }
+#section-social-3 .lantern:hover { transform: scale(1.1); transition: transform 0.3s; }
+#section-social-3 .lantern-3::after { content: ""; position: absolute; top: -30vh; bottom: -30vh; left: -30vw; right: -30vw; display: none; }
+
+/* ✨ 状态机与 ID 前缀结合 */
+#section-social-3 .stage-container.active-1 .moon-panel, 
+#section-social-3 .stage-container.active-2 .moon-panel, 
+#section-social-3 .stage-container.active-3 .moon-panel { bottom: 5%; opacity: 1; }
+
+#section-social-3 .stage-container.active-1 .text-1 { opacity: 1; }
+#section-social-3 .stage-container.active-1 .pedestrians-img { opacity: 1; }
+
+#section-social-3 .stage-container.active-2 .text-2 { opacity: 1; }
+#section-social-3 .stage-container.active-2 .sl-1 { opacity: 1; bottom: 40%; transform: translateX(10px) rotate(-5deg); }
+#section-social-3 .stage-container.active-2 .sl-2 { opacity: 0.8; bottom: 38%; transform: translateX(-15px) rotate(3deg); }
+
+#section-social-3 .stage-container.active-3 .text-3 { opacity: 1; }
+#section-social-3 .stage-container.active-3 .scene-wrapper { transform: translateX(-30vw); }
+#section-social-3 .stage-container.active-3 .lantern-3::after { display: block; }
+
+@keyframes swing { 0% { transform: rotate(-4deg); } 100% { transform: rotate(4deg); } }
+@keyframes glow { 0% { filter: drop-shadow(0 0 10px rgba(234, 114, 53, 0.4)); } 100% { filter: drop-shadow(0 0 35px rgba(234, 114, 53, 0.9)); } }

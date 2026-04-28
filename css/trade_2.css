@@ -1,0 +1,35 @@
+#section-trade-2 { 
+    --font-title: 'HuiwenMincho', "STXingkai", serif; 
+    --font-body: "Noto Serif SC", "SimSun", "楷体", "KaiTi", serif; 
+    position: relative; 
+    margin-top: -20vh; /* ✨ 向上与第一幕重叠，实现过渡 */
+    z-index: 10; 
+}
+
+#section-trade-2 .stage-container { position: relative; width: 100vw; height: 100vh; overflow: hidden; }
+
+/* ✨ 顶部增加羽化遮罩，完美溶解前序画面 */
+#section-trade-2 .bg-red { 
+    position: absolute; width: 100%; height: 100%; background-color: #a33b31; z-index: 0; 
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 20vh, black 100%);
+    mask-image: linear-gradient(to bottom, transparent 0%, black 20vh, black 100%);
+}
+
+#section-trade-2 .cloud { position: absolute; z-index: 1; mix-blend-mode: screen; opacity: 0.8; }
+#section-trade-2 .cloud-left { left: -10%; bottom: 0%; width: 55%; }
+#section-trade-2 .cloud-right { right: -10%; top: 0%; width: 60%; }
+
+#section-trade-2 .bridges-wrapper { position: absolute; top: 35%; left: 50%; transform: translate(-50%, -50%); width: 80%; display: flex; justify-content: space-around; align-items: center; z-index: 5; }
+
+#section-trade-2 .bridge-circle { width: 160px; height: 160px; border-radius: 50%; border: 2px solid rgba(229, 193, 133, 0.5); overflow: hidden; cursor: pointer; box-shadow: 0 10px 20px rgba(0,0,0,0.3); transition: all 0.3s ease; opacity: 0; transform: scale(0.5); }
+#section-trade-2 .bridge-circle img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+#section-trade-2 .bridge-circle:hover { border-color: #e5c185; box-shadow: 0 0 35px rgba(229, 193, 133, 0.8); transform: scale(1.1) !important; }
+#section-trade-2 .bridge-circle:hover img { transform: scale(1.15); }
+
+#section-trade-2 .info-board { position: absolute; top: 57%; left: 50%; transform: translateX(-50%); width: 70%; min-height: 240px; background: rgba(253, 250, 243, 0.95); backdrop-filter: blur(8px); border: 1px solid rgba(163, 59, 49, 0.2); border-radius: 4px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); padding: 40px 60px; box-sizing: border-box; z-index: 4; opacity: 0; pointer-events: none; }
+
+#section-trade-2 .info-content { position: absolute; top: 40px; left: 60px; right: 60px; opacity: 0; visibility: hidden; transition: all 0.4s ease; color: #3a2e24; }
+#section-trade-2 .show-info { opacity: 1; visibility: visible; }
+
+#section-trade-2 .info-content h2 { font-family: var(--font-title); font-size: 34px; font-weight: normal; letter-spacing: 3px; color: #a33b31; padding-bottom: 12px; display: inline-block; border-bottom: 1px solid rgba(163, 59, 49, 0.3); margin: 0 0 15px 0; }
+#section-trade-2 .info-content p { font-family: var(--font-body); font-size: 22px; line-height: 2.3; text-align: justify; letter-spacing: 1.5px; margin: 0; }

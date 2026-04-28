@@ -1,0 +1,145 @@
+﻿/* =========================================
+   1. 全局配置与字体注册
+   ========================================= */
+@font-face {
+    font-family: 'HuiwenMincho';
+    src: url('../../assets/fonts/Huiwen-mincho.ttf') format('truetype'); 
+    font-weight: normal; font-style: normal;
+}
+
+/* ✨ 修复：将 :root 替换为当前板块的 ID 结界 */
+#section-1-zeqiao {
+    --font-title: 'HuiwenMincho', "STXingkai", serif;
+    --font-body: "Noto Serif SC", "SimSun", "楷体", "KaiTi", serif;
+    --theme-gold: #b58d44; 
+    --theme-dark: #4a3e2a; 
+}
+
+body, html { margin: 0; padding: 0; overflow-x: hidden; background-color: #0f1011; }
+
+/* =========================================
+   2. 第一阶段：外层容器与中层幕布
+   ========================================= */
+.stage-1-container { position: relative; width: 100vw; height: 100vh; overflow: hidden; }
+
+.split-image-wrapper { position: absolute; width: 100%; height: 100%; z-index: 5; pointer-events: none; }
+#section-1-zeqiao .half-img {
+    position: absolute; width: 100%; height: 100%;
+    background-image: url('../assets/images/traffic/main-bg.jpg');
+    background-size: cover; background-position: center;
+}
+.img-left-part { clip-path: polygon(0 0, 50.1% 0, 50.1% 100%, 0 100%); }
+.img-right-part { clip-path: polygon(50% 0, 100% 0, 100% 100%, 50% 100%); }
+
+/* 标题与祥云画板 */
+#section-1-zeqiao .title-group {
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+    z-index: 10; width: 550px; height: 550px; pointer-events: none;
+}
+#section-1-zeqiao .center-title {
+    width: 100%; height: 100%; position: absolute;
+    display: flex; justify-content: center; align-items: center;
+    filter: drop-shadow(0 0 30px rgba(0,0,0,0.8));
+}
+#section-1-zeqiao .circle-bg { position: absolute; width: 100%; height: 100%; z-index: 1; }
+
+/* ✨ 修复：加上了 #section-1-zeqiao 前缀，死死锁住金色！ */
+#section-1-zeqiao .title-text { position: relative; z-index: 2; text-align: center; color: var(--theme-gold) !important; font-family: var(--font-title); }
+#section-1-zeqiao .title-text h1 { font-size: 100px; margin: 0; font-weight: lighter; letter-spacing: 15px; text-indent: 15px; }
+#section-1-zeqiao .title-text p { font-size: 48px; margin: 10px 0 0 0; font-weight: lighter; letter-spacing: 8px; text-indent: 8px; }
+
+/* 祥云 */
+.cloud-wrapper { position: absolute; width: 360px; z-index: 2; pointer-events: none; }
+.cloud-left-wrapper { left: -150px; top: 140px; transform: rotate(5deg); }
+.cloud-right-wrapper { right: -140px; bottom: 100px; transform: rotate(-5deg); }
+.cloud { width: 100%; height: auto; filter: drop-shadow(0 0 10px rgba(0,0,0,0.3)); animation: floatBreath 3s ease-in-out infinite alternate; }
+@keyframes floatBreath { 0% { transform: translateY(0px); } 100% { transform: translateY(-15px); } }
+
+/* =========================================
+   3. 底层内容 (背景纸张与左侧山体)
+   ========================================= */
+.stage-content { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; overflow: hidden; }
+.paper-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; }
+.left-mountain {
+    position: absolute; left: 0; bottom: 0; height: 100%; width: auto;
+    z-index: 1; pointer-events: none;
+}
+
+/* =========================================
+   4. 第二阶段：靠右布局的笮桥介绍
+   ========================================= */
+.stage-2-panels {
+    position: absolute; right: 8%; top: 50%; transform: translateY(-50%);
+    width: 45%; z-index: 2; display: flex; flex-direction: column; gap: 40px;
+}
+/* ✨ 修复：加上 !important 强制锁定颜色 */
+.text-block { color: var(--theme-dark) !important; }
+.stage-2-panels .stage-title {
+    font-family: var(--font-title); font-size: 64px; margin: 0 0 20px 0;
+    text-align: center; letter-spacing: 12px; font-weight: normal; color: var(--theme-dark) !important; 
+}
+.stage-2-panels .stage-desc {
+    font-family: var(--font-body); font-size: 20px; line-height: 2; text-align: justify; color: var(--theme-dark) !important; 
+}
+.nodes-container { display: flex; justify-content: center; gap: 30px; }
+.node-item {
+    width: 170px; height: 170px; border-radius: 50%; overflow: hidden;
+    border: 3px solid var(--theme-gold); box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    cursor: pointer; transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1); pointer-events: auto;
+}
+.node-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
+.node-item:hover {
+    box-shadow: 0 0 25px rgba(181, 141, 68, 0.8), 0 0 10px rgba(255, 255, 255, 0.5); 
+    border-color: #d1a85b; transform: translateY(-8px) scale(1.02); 
+}
+.node-item:hover img { transform: scale(1.1); }
+
+/* =========================================
+   5. 第三阶段：绝对居中的图文切换
+   ========================================= */
+.stage-3-panels {
+    position: absolute; left: 50%; top: 48%; transform: translate(-50%, -50%);
+    width: 800px; height: 75%;
+    z-index: 3; display: flex; justify-content: center; align-items: center;
+    opacity: 0; pointer-events: none; 
+}
+
+.slider-content-view { position: relative; width: 420px; height: 100%; }
+
+.panel-item {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    opacity: 0; transform: translateY(30px);
+    pointer-events: none;
+    transition: all 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+.panel-item.active { opacity: 1; transform: translateY(0); pointer-events: auto; }
+
+/* ✨ 修复：加上 !important 强制锁定颜色 */
+.stage-3-panels .stage-title {
+    font-family: var(--font-title); font-size: 46px; margin: 0 0 15px 0;
+    color: var(--theme-dark) !important; text-align: center; font-weight: normal;
+}
+.stage-3-panels .stage-desc {
+    font-family: var(--font-body); font-size: 18px; line-height: 2.2;
+    color: var(--theme-dark) !important; text-align: justify;
+}
+
+.detail-img, .detail-video {
+    width: 80%; height: auto;
+    margin-top: 35px; 
+    filter: drop-shadow(0 10px 15px rgba(0,0,0,0.2)); display: block;
+}
+
+/* 控制条靠左 */
+.vertical-slider {
+    position: absolute; right: 10%; top: 15%; height: 70%; width: 40px;
+    display: flex; justify-content: center;
+    pointer-events: none; /* 防止误触 */
+}
+.slider-track { position: absolute; width: 6px; height: 100%; background-color: rgba(181, 141, 68, 0.2); border-radius: 3px; }
+.slider-thumb {
+    position: absolute; top: 0; width: 10px; height: 80px; 
+    background-color: var(--theme-gold); border-radius: 5px;
+    box-shadow: 0 0 12px rgba(181, 141, 68, 0.8); z-index: 2;
+}

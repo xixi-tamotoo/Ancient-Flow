@@ -1,0 +1,132 @@
+/* =========================================
+   古风答题按钮 (长卷末尾浮现)
+   ========================================= */
+.quiz-trigger-btn {
+    position: absolute;
+    bottom: 8%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 100;
+    padding: 12px 40px;
+    background: rgba(253, 250, 243, 0.9);
+    border: 2px solid #e5c185;
+    border-radius: 30px;
+    color: #a33b31;
+    font-family: 'HuiwenMincho', "STXingkai", serif;
+    font-size: 24px;
+    letter-spacing: 5px;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+    opacity: 0; /* 默认隐藏，由 GSAP 控制出现 */
+    visibility: hidden;
+}
+
+.quiz-trigger-btn:hover {
+    background: #e5c185;
+    color: #fff;
+    box-shadow: 0 5px 25px rgba(229, 193, 133, 0.6);
+    transform: translateX(-50%) scale(1.05);
+}
+
+/* =========================================
+   古风答题弹窗
+   ========================================= */
+.quiz-modal {
+    position: fixed;
+    top: 0; left: 0; width: 100vw; height: 100vh;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(5px);
+    z-index: 999999;
+    display: flex; justify-content: center; align-items: center;
+    opacity: 0; visibility: hidden;
+    transition: all 0.4s ease;
+}
+
+.quiz-modal.show { opacity: 1; visibility: visible; }
+
+.quiz-content {
+    position: relative;
+    width: 600px;
+    
+    /* ✨ 核心修改 1：删除了这里原本固定的 background，把颜色控制权交给了下面的主题类 */
+    
+    border-radius: 24px; 
+    border: 2px solid rgba(253, 250, 243, 0.3); 
+    padding: 50px 60px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+}
+
+/* =========================================
+   ✨ 核心修改 2：四个板块的专属半透明主题色
+   ========================================= */
+/* 民俗与信仰 */
+.quiz-content.theme-belief { background: rgba(139, 182, 186, 0.85); } 
+
+/* 社交与生活 */
+.quiz-content.theme-social { background: rgba(198, 198, 193, 0.85); } 
+
+/* 交通与连接  */
+.quiz-content.theme-traffic { background: rgba(175, 189, 167, 0.85); } 
+
+/* 商业与贸易 (Trade) - 烟波蓝 */
+.quiz-content.theme-trade { background: rgba(237, 221, 221, 0.85); }
+
+/* ✨ 新增：白色角图片的 CSS，确保它贴在框的边缘且不凸出 */
+/* 将图片移入 .quiz-content 内部后使用绝对定位 */
+.quiz-tip {
+    position: absolute;
+    /* ✨ 核心修复：调整坐标，让它精准贴在框的右下角 */
+    right: -20px; 
+    bottom: -20px;
+    width: 60px; 
+    height: 60px;
+    z-index: 10; /* 保证在所有内容之上 */
+    pointer-events: none; /* 允许点击穿透 */
+    filter: drop-shadow(0 4px 10px rgba(0,0,0,0.2)); /* 增加一点光影感 */
+}
+
+.quiz-close {
+    position: absolute; top: 20px; right: 25px;
+    background: none; border: none; font-size: 30px;
+    color: #5c4b37; cursor: pointer; transition: color 0.3s;
+}
+.quiz-close:hover { color: #a33b31; }
+
+.quiz-header {
+    text-align: center; margin-bottom: 30px;
+    font-family: 'HuiwenMincho', "STXingkai", serif;
+    color: #3a2e24; font-size: 32px; border-bottom: 1px solid rgba(92, 75, 55, 0.2); padding-bottom: 15px;
+}
+
+.quiz-question { font-family: "Noto Serif SC", serif; font-size: 20px; color: #3a2e24; line-height: 1.8; margin-bottom: 25px; }
+
+.quiz-options { display: flex; flex-direction: column; gap: 15px; margin-bottom: 30px; }
+
+.quiz-option {
+    padding: 12px 20px; background: rgba(209, 199, 183, 0.2);
+    border: 1px solid rgba(209, 199, 183, 0.5); border-radius: 4px;
+    cursor: pointer; font-family: "Noto Serif SC", serif; font-size: 18px; color: #5c4b37;
+    transition: all 0.3s ease;
+}
+
+.quiz-option:hover { background: rgba(229, 193, 133, 0.3); border-color: #e5c185; }
+.quiz-option.selected { background: #e5c185; color: #fff; border-color: #e5c185; }
+.quiz-option.correct { background: #527e55; color: #fff; border-color: #527e55; }
+.quiz-option.wrong { background: #b33d36; color: #fff; border-color: #b33d36; }
+
+.quiz-action-btn {
+    display: block; width: 100%; padding: 12px 0; background: #3a2e24; color: #fdfaf3;
+    border: none; border-radius: 4px; font-size: 18px; font-family: 'HuiwenMincho', serif;
+    cursor: pointer; letter-spacing: 2px; transition: background 0.3s;
+}
+.quiz-action-btn:hover { background: #4b4646; }
+.quiz-action-btn:disabled { background: #ccc; cursor: not-allowed; }
+
+.quiz-feedback {
+    margin-top: 20px; padding: 15px; border-radius: 4px;
+    font-family: "Noto Serif SC", serif; font-size: 16px; line-height: 1.6; display: none;
+}
+.quiz-feedback.show { display: block; }
+.quiz-feedback.success { background: rgba(82, 126, 85, 0.1); color: #527e55; border: 1px solid #527e55; }
+.quiz-feedback.error { background: rgba(179, 61, 54, 0.1); color: #b33d36; border: 1px solid #b33d36; }

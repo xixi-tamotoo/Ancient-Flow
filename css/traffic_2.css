@@ -1,0 +1,175 @@
+@font-face {
+    font-family: 'HuiwenMincho';
+    src: url('../../assets/fonts/Huiwen-mincho.ttf') format('truetype'); 
+    font-weight: normal; font-style: normal;
+}
+
+#section-2-fudiao {
+    --font-title: 'HuiwenMincho', "STXingkai", serif;
+    --font-body: "Noto Serif SC", "SimSun", "楷体", "KaiTi", serif;
+    --theme-red: #b33d36; 
+    --theme-gold: #e2c073; 
+    --theme-dark: #333;
+}
+
+body, html { margin: 0; padding: 0; overflow-x: hidden; background-color: #0f1011 !important; }
+
+.stage-1-container { position: relative; width: 100vw; height: 100vh; overflow: hidden; }
+
+/* =========================================
+   1. 幕布垂直分割 (推拉门效果)
+   ========================================= */
+.split-image-wrapper { position: absolute; width: 100%; height: 100%; z-index: 5; pointer-events: none; }
+#section-2-fudiao .half-img {
+    position: absolute; width: 100%; height: 100%;
+    background-image: url('../assets/images/traffic/wave-bg-dark.jpg'); 
+    background-size: cover; background-position: center;
+}
+/* 笔直的垂直切口 */
+.img-left-part { clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%); }
+.img-right-part { clip-path: polygon(50% 0, 100% 0, 100% 100%, 50% 100%); }
+
+/* 首屏标题组 (精准修复：圆盘防挤压 + 字体恢复细体) */
+#section-2-fudiao .title-group {
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+    z-index: 10; width: 550px; height: 550px; pointer-events: none;
+}
+#section-2-fudiao .center-title { 
+    width: 100%; height: 100%; position: absolute; 
+    display: flex; justify-content: center; align-items: center; 
+    filter: drop-shadow(0 0 30px rgba(0,0,0,0.8)); 
+}
+#section-2-fudiao .circle-title-bg { 
+    position: absolute; 
+    /* ✨ 修复 1：大小改回 550px，和第三幕的绿圆完全一样大 */
+    width: 550px; height: 550px; 
+    z-index: 1; 
+    /* ✨ 修复 2：恢复实心红色背景 */
+    background-color: var(--theme-red) !important; 
+    /* ✨ 统一视觉：加上和第三幕一样的金色边框 */
+    border: 4px solid var(--theme-gold) !important; 
+    border-radius: 50%; box-sizing: border-box;
+}
+
+/* ✨ 修复：加上了 #section-2-fudiao 前缀，防止它的白色去污染别人！ */
+#section-2-fudiao .title-text { position: relative; z-index: 2; text-align: center; color: #fff !important; font-family: var(--font-title); }
+#section-2-fudiao .title-text h1 { font-size: 100px; margin: 0; font-weight: normal; letter-spacing: 15px; text-indent: 15px; }
+#section-2-fudiao .title-text p { font-size: 48px; margin: 10px 0 0 0; font-weight: normal; letter-spacing: 8px; text-indent: 8px; }
+.wave-wrapper { position: absolute; width: 280px; z-index: 2; right: -90px; bottom: 80px; }
+.wave-img { width: 100%; height: auto; filter: drop-shadow(0 0 15px rgba(0,0,0,0.5)); animation: floatBreath 3s ease-in-out infinite alternate; }
+@keyframes floatBreath { 0% { transform: translateY(0px); } 100% { transform: translateY(-15px); } }
+
+/* =========================================
+   2. 红色底层与圆盘定位
+   ========================================= */
+.stage-content { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; overflow: hidden; }
+.red-bg { width: 100vw; height: 100vh; object-fit: cover; position: absolute; z-index: 0; top: 0; left: 0; }
+
+.stage-2-layer { width: 100%; height: 100%; position: absolute; z-index: 2; }
+
+/* 【修复：圆盘位置移到右上方，并且加上白色保底背景】 */
+.rising-circle-group { 
+    position: absolute; 
+    top: 50%;     /* 靠上 */
+    left: 62%;    /* 靠右 */
+    transform: translate(-50%, -50%); 
+    width: 680px; height: 680px; z-index: 1; 
+    display: flex; justify-content: center; align-items: center; 
+}
+.circle-bg-img { 
+    position: absolute; width: 100%; height: 100%; object-fit: contain; z-index: 1; 
+    background-color: #fdfaf3 !important; /* 如果图片没加载出来，会显示这个宣纸白底 */
+    border-radius: 50%;
+}
+.circle-text { 
+    position: relative; z-index: 2; width: 68%; margin-top: -20px;
+    color: var(--theme-dark) !important; font-size: 20px; line-height: 2.2; 
+    font-family: var(--font-body); text-align: justify;
+}
+
+/* 前景海浪 */
+.front-waves { 
+    position: absolute; bottom: 0%; left: 0; width: 110%; height: auto; z-index: 2; 
+    /* 新增：添加海浪微微晃动的动画，4秒一个来回，无限循环 */
+    animation: gentleWave 3s ease-in-out infinite alternate;
+    transform-origin: bottom center; /* 以底部为圆心微微摇摆 */
+}
+
+/* 新增：海浪晃动的关键帧 */
+@keyframes gentleWave {
+    0% { 
+        transform: translate(0px, 0px) rotate(0deg); 
+    }
+    100% { 
+        /* 向左移动20px，向下移动10px，并微微倾斜1度，模拟水波起伏 */
+        transform: translate(-20px, 10px) rotate(-1deg); 
+    }
+}
+
+/* =========================================
+   3. 桥梁对齐与第三阶段解构
+   ========================================= */
+.upper-bridge { 
+    position: absolute; top: 65%; left: 0; width: 100%; height: auto; z-index: 3; 
+}
+
+.stage-3-layer { width: 100%; height: 100%; position: absolute; z-index: 1; opacity: 1; }
+
+/* 复合桥梁组容器 */
+.lower-bridge-group {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+}
+/* 桥面：锁定 60% 与上层桥完美重叠 */
+.part-bridge { position: absolute; top: 50%; left: 0; width: 100%; height: auto; z-index: 3; }
+/* 海岸：和桥等宽，也锁定 60% */
+.part-banks { position: absolute; top: 50%; left: 0; width: 100%; height: auto; z-index: 1; transition: filter 0.5s; }
+/* 水下锚：需手动微调位置，挂在中心船下方 */
+.part-anchor { 
+    position: absolute; 
+    top: 54.5%;    /* 高度微调：挂在船底 */
+    left: 38.2%; /* 左右微调：对准中间的船 */
+    width: 12%;  /* 锚的大小 */
+    z-index: 2; 
+    transition: filter 0.5s; /* 滤镜平滑过渡 */
+    transform-origin: top center; 
+    /* ✨ 核心新增 2：绑定名为 anchorSway 的动画，4秒一个来回，平滑且无限循环 */
+    animation: anchorSway 4s ease-in-out infinite alternate;
+}
+@keyframes anchorSway {
+    0% { transform: rotate(-3deg); }   /* 向左微偏 */
+    100% { transform: rotate(4deg); }  /* 向右微偏 */
+}
+
+/* 初始通用介绍文字 */
+.stage-3-intro { 
+    position: absolute; top: 25%; left: 50%; transform: translateX(-50%); 
+    width: 500px; text-align: justify; opacity: 0; 
+    color: #f9e6b8 !important; font-size: 22px; line-height: 2.2; font-family: var(--font-body); 
+}
+
+/* 锚和海岸的详细图文块 */
+/* 锚和海岸的详细图文块 */
+.detail-block {
+    position: absolute; 
+    top: 60%; 
+    left: 50%; 
+    transform: translateX(-50%);
+    width: 700px; 
+    display: flex; 
+    align-items: center; 
+    
+    /* 👇 核心修改在这里 👇 */
+    justify-content: center; /* 1. 将原来的 space-between 改成 center，让内容往中间靠拢 */
+    gap: 40px;               /* 2. 新增 gap 属性来精确控制间隙，数值越小靠得越近 */
+    
+    opacity: 0; 
+    pointer-events: none;
+}
+.detail-block p {
+    color: #f9e6b8 !important; font-size: 20px; line-height: 2; font-family: var(--font-body);
+    width: 50%; text-align: justify; margin: 0; letter-spacing: 1px;
+}
+.detail-block img {
+    width: 30%; height: auto; object-fit: contain;
+    filter: drop-shadow(0 10px 15px rgba(0,0,0,0.4));
+}

@@ -1,0 +1,30 @@
+@font-face { font-family: 'HuiwenMincho'; src: url('../../assets/fonts/Huiwen-mincho.ttf') format('truetype'); }
+
+#section-trade-1 { --font-title: 'HuiwenMincho', "STXingkai", serif; --font-body: "Noto Serif SC", "SimSun", "楷体", "KaiTi", serif; }
+
+#section-trade-1 .stage-container { position: relative; width: 100vw; height: 100vh; overflow: hidden; background-color: #9c3b31; }
+#section-trade-1 .bg-img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; }
+
+#section-trade-1 .bridge-group { position: absolute; left: 0; bottom: 0; width: 100%; z-index: 1; }
+#section-trade-1 .bridge { display: block; width: 100%; height: auto; }
+#section-trade-1 .empty-bridge { position: relative; z-index: 1; }
+#section-trade-1 .full-bridge, #section-trade-1 .dark-bridge { position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; z-index: 2; }
+
+#section-trade-1 .item-hl { position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; z-index: 5; transition: opacity 0.4s ease; pointer-events: none; }
+#section-trade-1 .show-hl { opacity: 1; filter: drop-shadow(0 0 25px rgba(253, 250, 243, 0.9)); }
+
+#section-trade-1 .hotspots-container { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 10; visibility: hidden; opacity: 0; }
+#section-trade-1 .hotspot-btn { position: absolute; width: 3%; transform: translate(-50%, -50%); cursor: pointer; animation: btnPulse 1.5s infinite alternate ease-in-out; }
+#section-trade-1 .hotspot-btn img { width: 100%; height: auto; }
+#section-trade-1 .hotspot-btn:hover { animation: none; transform: translate(-50%, -50%) scale(1.0); filter: drop-shadow(0 0 20px rgba(255, 255, 255, 1)); transition: all 0.3s ease; }
+
+@keyframes btnPulse { 0% { transform: translate(-50%, -50%) scale(0.85); filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.3)); } 100% { transform: translate(-50%, -50%) scale(0.95); filter: drop-shadow(0 0 18px rgba(255, 255, 255, 1)); } }
+
+#section-trade-1 .text-group { position: absolute; right: 8%; top: 47%; transform: translateY(-50%); width: 40%; z-index: 20; }
+#section-trade-1 .text-block { position: absolute; top: 0; left: 0; width: 100%; color: #fdfaf3; }
+#section-trade-1 .text-2 { opacity: 0; pointer-events: none; }
+#section-trade-1 .text-hover { opacity: 0; transition: all 0.5s ease; pointer-events: none; transform: translateY(20px); }
+#section-trade-1 .show-text { opacity: 1; transform: translateY(0); }
+
+#section-trade-1 .text-block h2 { font-family: var(--font-title); font-size: 38px; font-weight: normal; margin-bottom: 0px; letter-spacing: 4px; border-bottom: 1px solid rgba(253, 250, 243, 0.3); padding-bottom: 10px; display: inline-block; }
+#section-trade-1 .text-block p { font-family: var(--font-body); font-size: 18px; line-height: 2; text-align: justify; letter-spacing: 1.5px; }

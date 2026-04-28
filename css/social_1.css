@@ -1,0 +1,25 @@
+@font-face { font-family: 'HuiwenMincho'; src: url('../../assets/fonts/Huiwen-mincho.ttf') format('truetype'); font-weight: normal; font-style: normal; }
+
+#section-social-1 { --font-title: 'HuiwenMincho', "STXingkai", serif; --font-body: "Noto Serif SC", "SimSun", "楷体", "KaiTi", serif; --theme-dark: #fdfaf3; }
+
+#section-social-1 .stage-1-container { position: relative; width: 100vw; height: 100vh; overflow: hidden; }
+#section-social-1 .bg-image { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; }
+#section-social-1 .bridge-img { position: absolute; left: -5%; top: 5%; width: 110%; height: auto; z-index: 1; }
+
+#section-social-1 .people-group { position: absolute; left: 0; bottom: 0; width: 100%; z-index: 5; pointer-events: none; }
+#section-social-1 .layer-trunk { position: relative; width: 100%; height: auto; display: block; z-index: 1; }
+#section-social-1 .layer-poets { position: absolute; z-index: 2; width: 100%; bottom: -29%; left: -3%; transform-origin: bottom center; animation: poetBreath 5s ease-in-out infinite alternate; }
+#section-social-1 .layer-willow { position: absolute; z-index: 3; width: 108%; top: -3%; left: -0.3%; transform-origin: top left; animation: willowBreeze 3s ease-in-out infinite alternate; }
+
+@keyframes poetBreath { 0% { transform: scaleY(1); } 100% { transform: scaleY(1.01) translateY(-0.5px); } }
+@keyframes willowBreeze { 0% { transform: rotate(0deg) skewX(0deg); } 100% { transform: rotate(1deg) skewX(-2deg); } }
+
+#section-social-1 .info-panel { position: absolute; right: 0; top: 0; width: 45vw; height: 100vh; z-index: 3; display: flex; align-items: center; justify-content: center; }
+#section-social-1 .circle-bg { position: absolute; right: -25%; top: 50%; transform: translateY(-50%); width: 140%; height: auto; z-index: 1; object-fit: contain; }
+#section-social-1 .text-content { position: relative; z-index: 2; width: 70%; margin-right: 10%; color: var(--theme-dark); font-family: var(--font-body); }
+#section-social-1 .text-content h2 { font-family: var(--font-title); font-size: 64px; margin: 0 0 20px 0; font-weight: normal; letter-spacing: 8px; text-align: center; }
+#section-social-1 .text-content p { font-size: 20px; line-height: 2.2; text-align: justify; letter-spacing: 2px; }
+
+#section-social-1 .intro-text { position: absolute; right: 10%; bottom: 3%; width: 40%; z-index: 2; color: #2c251d; font-family: var(--font-body); }
+#section-social-1 .intro-text p { font-size: 18px; line-height: 2.2; text-align: justify; letter-spacing: 1px; }
+#section-social-1 .intro-text strong { font-family: var(--font-title); font-size: 22px; font-weight: normal; }
