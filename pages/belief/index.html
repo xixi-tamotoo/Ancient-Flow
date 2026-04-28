@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>民俗与信仰 - 津梁万象</title>
+    <link rel="stylesheet" href="../../css/belief_1.css">
+    <link rel="stylesheet" href="../../css/belief_2.css">
+    <link rel="stylesheet" href="../../css/belief_3.css">
+    <link rel="stylesheet" href="../../css/nav.css">
+    <link rel="stylesheet" href="../../css/quiz.css">
+    <style>
+        body, html { margin: 0; padding: 0; overflow-x: hidden; background-color: #b8c6ca; }
+        .scroll-section { position: relative; width: 100vw; min-height: 100vh; overflow: hidden; }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+</head>
+<body>
+    <nav class="global-nav">
+        <div class="nav-links">
+            <a href="../home/index.html">首页</a>
+            <span class="nav-divider">|</span>
+            <a href="../traffic/index.html">交通与连接</a>
+            <span class="nav-divider">|</span>
+            <a href="../trade/index.html">商业与贸易</a>
+            <span class="nav-divider">|</span>
+            <a href="../social/index.html">社交与生活</a>
+            <span class="nav-divider">|</span>
+            <a href="../belief/index.html" class="active">民俗与信仰</a>
+        </div>
+
+        <div class="nav-controls">
+            <audio id="bg-music" loop src="../../assets/audio/bgm.mp3"></audio>
+            <button id="music-toggle" class="music-btn">
+                <span class="music-icon">🎵</span> 音效
+            </button>
+        </div>
+    </nav>
+
+    <section id="section-belief-1" class="scroll-section">
+        <div class="stage-container" id="belief-part-1">
+            <div class="scene-group">
+                <img src="../../assets/images/belief/背景1.jpg" class="bg-img" alt="背景">
+                <img src="../../assets/images/belief/桥1.png" class="bridge-img" alt="仙桥">
+                <img src="../../assets/images/belief/手印.png" class="mark hand-mark" alt="手印">
+                <img src="../../assets/images/belief/蹄印.png" class="mark hoof-mark" alt="蹄印">
+                <img src="../../assets/images/belief/车辙.png" class="mark rut-mark" alt="车辙">
+            </div>
+
+            <div class="center-text">
+                <h2>仙 迹</h2>
+                <p>古代桥梁之上，常留存有驴蹄印、车沟、手掌印等神秘痕迹，此类印迹并非单纯的自然磨损，而是古人将神仙传说具象化地镌刻于桥身的文化表征。民间信仰体系中，此类痕迹被视作仙人途经此桥的实证，其留存印记的核心功能在于镇桥护民，赋予桥梁以神性庇佑的文化内涵。民众途经桥梁时，观此仙迹即生桥梁受神灵护持之信念，由此获得心理慰藉与安全感，本质上是古人“以神护桥”朴素信仰的具象化呈现。</p>
+            </div>
+
+            <div class="hotspots-container">
+                <div class="hotspot-btn" data-target="luban" style="top: 78%; left: 31%;"><img src="../../assets/images/belief/悬停按键.png"></div>
+                <div class="hotspot-btn" data-target="guolao" style="top: 53%; left: 56%;"><img src="../../assets/images/belief/悬停按键.png"></div>
+                <div class="hotspot-btn" data-target="chai" style="top: 60%; left: 80%;"><img src="../../assets/images/belief/悬停按键.png"></div>
+            </div>
+
+            <div class="hover-panel panel-luban" id="panel-luban">
+                <div class="panel-bg"></div> <img src="../../assets/images/belief/鲁班.png" class="char-img" alt="鲁班">
+                <div class="panel-text">
+                    <h3>鲁班托桥</h3>
+                    <p>由于神仙所带重物过重，桥梁几乎要倾塌，情急之下鲁班用手托住桥身。桥底因此留下了鲁班的手掌印，成为神仙验桥、神人护桥的永久见证。</p>
+                </div>
+            </div>
+
+            <div class="hover-panel panel-guolao" id="panel-guolao">
+                <div class="panel-bg"></div>
+                <img src="../../assets/images/belief/张果老.png" class="char-img" alt="张果老">
+                <div class="panel-text">
+                    <h3>果老留踪</h3>
+                    <p>相传张果老骑着毛驴从桥上走过，驴蹄踏在石桥上，留下了深深的蹄印。</p>
+                </div>
+            </div>
+
+            <div class="hover-panel panel-chai" id="panel-chai">
+                <div class="panel-bg"></div>
+                <img src="../../assets/images/belief/柴王爷.png" class="char-img" alt="柴王爷">
+                <div class="panel-text">
+                    <h3>柴王压痕</h3>
+                    <p>柴王推着载有重物的小车经过桥面，车轮在桥上压出了深深的车沟。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="section-belief-2" class="scroll-section">
+        <div class="stage-container" id="belief-part-2">
+            <div class="center-title" id="title-beast">
+                <h2>瑞 兽</h2>
+            </div>
+            
+            <div class="left-beasts">
+                <div class="beast-item" id="nav-lion"><img src="../../assets/images/belief/狮子.png" alt="狮子"></div>
+                <div class="beast-item" id="nav-dragon"><img src="../../assets/images/belief/龙.png" alt="龙"></div>
+                <div class="beast-item" id="nav-qilin"><img src="../../assets/images/belief/麒麟.png" alt="麒麟"></div>
+                <div class="beast-item" id="nav-elephant"><img src="../../assets/images/belief/象.png" alt="象"></div>
+            </div>
+
+            <div class="right-content">
+                <div class="beast-panel" id="panel-lion">
+                    <div class="text-box">
+                        <h3>威震八方 · 狮子</h3>
+                        <p>狮子是中国古代桥梁望柱与栏板上最为常见的雕刻题材，由佛教文化传入后逐渐本土化，成为镇桥辟邪、镇水防灾的重要瑞兽，以威严之气势震慑水患，护佑桥梁与行人平安。</p>
+                    </div>
+                    <img src="../../assets/images/belief/狮子2.png" class="real-img" alt="狮子实物">
+                </div>
+
+                <div class="beast-panel" id="panel-dragon">
+                    <div class="text-box">
+                        <h3>九五至尊 · 龙纹</h3>
+                        <p>龙纹属于古代桥梁雕刻中等级最高的题材，主要用于官式桥梁与皇家桥梁。龙主水，可驭水镇洪、祈求河道安流，常雕于券脸、龙门石等位置，兼具护桥、分水的功能寓意。</p>
+                    </div>
+                    <img src="../../assets/images/belief/龙2.png" class="real-img" alt="龙实物">
+                </div>
+
+                <div class="beast-panel" id="panel-qilin">
+                    <div class="text-box">
+                        <h3>盛世祥瑞 · 麒麟</h3>
+                        <p>麒麟为仁兽，在古桥雕刻中属高阶祥瑞，多用于礼制桥梁与文人义桥，不主镇水，而主祥瑞太平、文运昌盛，寄托行路吉祥的愿望，多以浮雕形式出现，造型温雅。</p>
+                    </div>
+                    <img src="../../assets/images/belief/麒麟2.png" class="real-img" alt="麒麟实物">
+                </div>
+
+                <div class="beast-panel" id="panel-elephant">
+                    <div class="text-box">
+                        <h3>万象更新 · 太平象</h3>
+                        <p>象在古桥雕刻中多见于南方及受佛教影响区域，取“祥”谐音，寓意吉祥、安稳、坚固，祈愿桥梁长久稳固、通行顺遂，以圆雕或浮雕为主，属于典型的祈福类装饰。</p>
+                    </div>
+                    <img src="../../assets/images/belief/象2.png" class="real-img" alt="象实物">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="section-belief-3" class="scroll-section">
+        <div class="stage-container" id="belief-part-3">
+            <img src="../../assets/images/belief/背景2.jpg" class="bg-img" alt="背景">
+
+            <div class="right-bridge">
+                <img src="../../assets/images/belief/桥2.png" class="base-bridge" alt="整桥">
+                <img src="../../assets/images/belief/桥台阶.png" class="bridge-overlay" id="overlay-steps" alt="台阶高亮">
+                <img src="../../assets/images/belief/桥门洞.png" class="bridge-overlay" id="overlay-arch" alt="桥洞高亮">
+                <img src="../../assets/images/belief/桥石墩.png" class="bridge-overlay" id="overlay-pier" alt="桥墩高亮">
+            </div>
+
+            <div class="left-panel">
+                <div class="circles-row">
+                    <div class="circle-item" data-target="steps">
+                        <div class="circle-wrap"><img src="../../assets/images/belief/台阶.png" alt="台阶"></div>
+                    </div>
+                    <div class="circle-item" data-target="arch">
+                        <div class="circle-wrap"><img src="../../assets/images/belief/桥洞.png" alt="桥洞"></div>
+                    </div>
+                    <div class="circle-item" data-target="pier">
+                        <div class="circle-wrap"><img src="../../assets/images/belief/桥墩.png" alt="桥墩"></div>
+                    </div>
+                </div>
+
+                <div class="text-display">
+                    <div class="info-text active" id="info-default">
+                        <h3>形制</h3>
+                        <p>中国古代桥梁的形制设计，往往暗含吉祥寓意。台阶的级数、桥墩的形状、桥洞的数量，都不是随意为之。</p>
+                    </div>
+                    
+                    <div class="info-text" id="info-steps">
+                        <h3>步步高升 · 台阶</h3>
+                        <p>桥梁两端的台阶并非单纯的通行设施，其层层攀升的形制蕴含着丰富的民俗寓意。石阶逐级而上，寓意世人跨越险阻、步步高升。往来行人拾级而上，每一级台阶都代表一重平安，象征着平安过渡、生生不息。</p>
+                    </div>
+
+                    <div class="info-text" id="info-arch">
+                        <h3>九五之尊 · 桥洞</h3>
+                        <p>桥洞取奇数，在中国传统文化中，奇数被视为阳数，具有吉祥、积极的象征意义。而在桥梁建设中，人们更倾向于选择奇数孔的设计，以寓意吉祥和美好。</p>
+                    </div>
+
+                    <div class="info-text" id="info-pier">
+                        <h3>坚守不移 · 桥墩</h3>
+                        <p>桥墩屹立于江河激流之中，稳立不动，在文化观念中象征着坚实的根基与永恒的守护。同时桥墩隔水而立，承担承载之责，引申为立身安稳、坚守不移，护佑过往行人平安。</p>
+                    </div>
+                </div>
+            </div>
+            <button id="quiz-trigger" class="quiz-trigger-btn">随堂雅集</button>
+        </div>
+    </section>
+    
+
+    <div id="quiz-modal" class="quiz-modal">
+        <div class="quiz-content theme-belief">
+            <button class="quiz-close" id="quiz-close">×</button>
+            <div class="quiz-header">学问初试</div>
+            
+            <div id="quiz-body">
+                <div class="quiz-question" id="q-text">题目加载中...</div>
+                <div class="quiz-options" id="q-options"></div>
+                <button class="quiz-action-btn" id="q-submit" disabled>提交作答</button>
+                <div class="quiz-feedback" id="q-feedback"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../js/belief_main.js"></script>
+</body>
+</html>

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>社交与生活 - 津梁万象</title>
+    <link rel="stylesheet" href="../../css/social_1.css">
+    <link rel="stylesheet" href="../../css/social_2.css">
+    <link rel="stylesheet" href="../../css/social_3.css">
+    <link rel="stylesheet" href="../../css/nav.css">
+    <link rel="stylesheet" href="../../css/quiz.css">
+    <style>
+        body, html { margin: 0; padding: 0; overflow-x: hidden; background-color: #f5f1e6; }
+        .scroll-section { position: relative; width: 100vw; min-height: 100vh; overflow: hidden; }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+</head>
+<body>
+    <nav class="global-nav">
+        <div class="nav-links">
+            <a href="../home/index.html">首页</a>
+            <span class="nav-divider">|</span>
+            <a href="../traffic/index.html">交通与连接</a>
+            <span class="nav-divider">|</span>
+            <a href="../trade/index.html">商业与贸易</a>
+            <span class="nav-divider">|</span>
+            <a href="../social/index.html" class="active">社交与生活</a>
+            <span class="nav-divider">|</span>
+            <a href="../belief/index.html">民俗与信仰</a>
+        </div>
+
+        <div class="nav-controls">
+            <audio id="bg-music" loop src="../../assets/audio/bgm.mp3"></audio>
+            <button id="music-toggle" class="music-btn">
+                <span class="music-icon">🎵</span> 音效
+            </button>
+        </div>
+    </nav>
+
+    <section id="section-social-1" class="scroll-section">
+        <div class="stage-1-container">
+            <img src="../../assets/images/social/背景1.jpg" class="bg-image" alt="背景">
+            <img src="../../assets/images/social/桥.png" class="bridge-img" alt="石拱桥">
+
+            <div class="people-group">
+                <img src="../../assets/images/social/树干.png" class="layer-trunk" alt="树干">
+                <img src="../../assets/images/social/诗人.png" class="layer-poets" alt="诗人">
+                <img src="../../assets/images/social/柳条.png" class="layer-willow" alt="柳条">
+            </div>
+
+            <div class="intro-text">
+                <p><strong>【东方第一桥】</strong>灞桥始建于秦、扩建于汉，是古代长安城东重要的交通枢纽，也是连接中原与关东地区的关键通道，自古便兼具交通、军事与礼仪功能。这里还是古代折柳送别习俗的发源地，自汉代起，人们送客至此便折柳相赠，以寄挽留与祝福之意。这一传统让灞桥成为文人寄托离愁别绪的核心意象，也让它从一座实用桥梁，升华为承载离别情感与文化仪式的标志性符号。</p>
+            </div>
+
+            <div class="info-panel">
+                <img src="../../assets/images/social/圆1.png" class="circle-bg" alt="绿色圆底">
+                <div class="text-content">
+                    <h2>折柳寄情</h2>
+                    <p>古人送别时会折柳相送：柳树生命力顽强，随手栽种就能成活，以此祝愿远行之人在外平安顺遂、扎根立足；“柳”与“留”谐音，寄托着不舍与挽留的心意；加之柳枝随手可折，方便在送别时取用，久而久之便形成了折柳送别的传统习俗。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="section-social-2" class="scroll-section">
+        <div class="stage-container">
+            <img src="../../assets/images/social/廊桥.png" class="bridge-bg" alt="廊桥">
+
+            <div class="hotspot-group hotspot-main">
+                <div class="pulse-dot"></div>
+                <div class="tooltip-panel">
+                    <img src="../../assets/images/social/方形.png" class="tooltip-bg" alt="背景框">
+                    <div class="tooltip-content">
+                        <h2>廊桥：天然的社交中心</h2>
+                        <p>中国廊桥历史悠久，是广义风雨桥范畴内的特色建筑，现存700多座，多分布于南方。桥上建有阁楼、亭榭、廊道等遮风挡雨的建筑物，形式多样、风格各异。它不仅满足人们跨越障碍的交通需要，还能满足人们享受环境美和艺术美的需求，成为当地人日常休憩、感受地域文化的重要空间，承载着当地民众的日常休闲生活。</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="character-group group-women">
+                <img src="../../assets/images/social/廊桥妇女.png" class="character-img" alt="妇女">
+                <div class="hotspot-group hotspot-women">
+                    <div class="pulse-dot"></div>
+                    <div class="tooltip-panel">
+                        <img src="../../assets/images/social/方形.png" class="tooltip-bg" alt="背景框">
+                        <div class="tooltip-content">
+                            <p>这里的长椅被称为“美人靠”。是廊桥、风雨桥、园林里常见的弧形靠背长椅。它因造型优雅、方便倚靠远眺而得名，是古代妇女少有的、可以合情合理出现在公众视野并观察外界的场所。在这里，私密的家庭生活与开放的社会空间产生交汇，桥梁也因此充满了生活的气息。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="character-group group-storyteller">
+                <img src="../../assets/images/social/说书人.png" class="character-img" alt="说书人">
+                <div class="hotspot-group hotspot-storyteller">
+                    <div class="pulse-dot"></div>
+                    <div class="tooltip-panel">
+                        <img src="../../assets/images/social/方形.png" class="tooltip-bg" alt="背景框">
+                        <div class="tooltip-content">
+                            <p>说书，也叫“讲古董”。是廊桥上最普遍、最常见的娱乐活动，村里有两三名相对固定的“讲古董”人，没有报酬，是倍受听众欢迎和尊重的“明星”。说书人的段子不仅是娱乐，更是儒家伦理、历史知识在民间传播的重要途径。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="character-group group-council">
+                 <img src="../../assets/images/social/议会.png" class="character-img" alt="议会">
+                <div class="hotspot-group hotspot-council">
+                    <div class="pulse-dot"></div>
+                    <div class="tooltip-panel">
+                        <img src="../../assets/images/social/方形.png" class="tooltip-bg" alt="背景框">
+                        <div class="tooltip-content">
+                            <p>廊桥是人气最旺的公共场所，村人的是非恩怨、家长里短也会在这里评说、流传；一些家族会议、全村人的会议在这里召开，村里的大事在这里宣布；村规民约最先贴在廊桥的风雨板上。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="section-social-3" class="scroll-section">
+        <div class="stage-container" id="social-part-3">
+            
+            <img src="../../assets/images/social/背景2.jpg" class="night-sky-img" alt="夜空背景">
+
+            <div class="moon-panel">
+                <img src="../../assets/images/social/圆2.png" class="moon-bg" alt="月亮">
+                
+                <div class="moon-text text-1">
+                    <h2>走百病</h2>
+                    <p>“走百病”是我国古代一项全国性民俗活动，以妇女为主体、以游走为基本形式、以祛病祈福为主要诉求，萌芽于南北朝，在明清时期盛行全国，至今仍在部分地区传承。</p>
+                </div>
+                <div class="moon-text text-2">
+                    <h2>猜灯谜</h2>
+                    <p>桥上猜灯谜，让一座桥从“通行的通道”变成了“趣味的纽带”。此处的灯笼不再只是照明工具，而是承载着智慧与欢乐的文化符号。人们围在灯笼下读谜、猜谜、笑谈，这种灯火里的互动，让桥成为了鲜活的文化记忆容器。</p>
+                </div>
+                <div class="moon-text text-3">
+                    <h2>桥头社戏</h2>
+                    <p>桥头通常是乡村最开阔的公共空地。每逢佳节，这里便搭建起临时的社戏台。戏曲表演、庙会贸易与祭祀活动在此交汇。桥梁在这些时刻，彻底演变为社区的“心脏”，它不仅连通了地理，更连通了凡尘生活与精神信仰。</p>
+                </div>
+            </div>
+
+            <div class="scene-wrapper">
+                <img src="../../assets/images/social/石拱桥.png" class="bridge-img" alt="石拱桥与亭子">
+                <img src="../../assets/images/social/走百病.png" class="pedestrians-img" alt="走百病人群">
+
+                <img src="../../assets/images/social/灯谜1.png" class="sky-lantern sl-1" alt="孔明灯">
+                <img src="../../assets/images/social/灯谜2.png" class="sky-lantern sl-2" alt="孔明灯">
+
+                <div class="lantern-group">
+                    <div class="lantern lantern-1" id="trigger-1"><img src="../../assets/images/social/灯笼.png"></div>
+                    <div class="lantern lantern-2" id="trigger-2"><img src="../../assets/images/social/灯笼.png"></div>
+                    <div class="lantern lantern-3" id="trigger-3"><img src="../../assets/images/social/灯笼.png"></div>
+                </div>
+
+                <button id="quiz-trigger" class="quiz-trigger-btn">随堂雅集</button>
+
+            </div>
+        </div>
+    </section>
+
+    <div id="quiz-modal" class="quiz-modal">
+        <div class="quiz-content theme-social">
+            <button class="quiz-close" id="quiz-close">×</button>
+            <div class="quiz-header">学问初试</div>
+            <div id="quiz-body">
+                <div class="quiz-question" id="q-text">题目加载中...</div>
+                <div class="quiz-options" id="q-options"></div>
+                <button class="quiz-action-btn" id="q-submit" disabled>提交作答</button>
+                <div class="quiz-feedback" id="q-feedback"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../js/social_main.js"></script>
+</body>
+</html>

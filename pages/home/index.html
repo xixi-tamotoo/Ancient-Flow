@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>津梁万象 - 古代桥梁的社会功能</title>
+    <link rel="stylesheet" href="../../css/home.css">
+    <link rel="stylesheet" href="../../css/nav.css">
+    <script src="https://unpkg.com/gsap@3.12.2/dist/gsap.min.js"></script>
+</head>
+<body>
+    <nav class="global-nav">
+        <div class="nav-links">
+            <a href="../home/index.html" id="nav-home">首页</a>
+            <span class="nav-divider">|</span>
+            <a href="../traffic/index.html" id="nav-traffic">交通与连接</a>
+            <span class="nav-divider">|</span>
+            <a href="../trade/index.html" id="nav-trade">商业与贸易</a>
+            <span class="nav-divider">|</span>
+            <a href="../social/index.html" id="nav-social">社交与生活</a>
+            <span class="nav-divider">|</span>
+            <a href="../belief/index.html" id="nav-belief">民俗与信仰</a>
+        </div>
+
+        <div class="nav-controls">
+            <audio id="bg-music" loop src="../../assets/audio/bgm.mp3"></audio>
+            <button id="music-toggle" class="music-btn paused">
+                <span class="music-icon">🎵</span> 音效
+            </button>
+        </div>
+    </nav>
+    
+
+    <div class="stage-container">
+        
+        <img src="../../assets/images/home/bg_paper.png" class="bg-paper" alt="宣纸背景">
+
+        <div class="center-gallery">
+            <img src="../../assets/images/home/center_default.png" class="center-img active" id="img-default" alt="默认画卷">
+            <img src="../../assets/images/home/center_traffic.png" class="center-img" id="img-traffic">
+            <img src="../../assets/images/home/center_trade.png" class="center-img" id="img-trade">
+            <img src="../../assets/images/home/center_social.png" class="center-img" id="img-social">
+            <img src="../../assets/images/home/center_belief.png" class="center-img" id="img-belief">
+        </div>
+
+        <div class="title-gallery">
+            <div class="title-group active" id="title-default">
+                <img src="../../assets/images/home/title_default1.png" class="en-title">
+                <img src="../../assets/images/home/title_default.png" class="main-title">
+                <img src="../../assets/images/home/title_default2.png" class="sub-title">
+            </div>
+            
+            <div class="title-group" id="title-traffic">
+                
+                <img src="../../assets/images/home/title_traffic.png" class="main-title">
+            </div>
+
+            <div class="title-group" id="title-trade">
+                
+                <img src="../../assets/images/home/title_trade.png" class="main-title">
+            </div>
+
+            <div class="title-group" id="title-social">
+                
+                <img src="../../assets/images/home/title_social.png" class="main-title">
+            </div>
+
+            <div class="title-group" id="title-belief">
+                
+                <img src="../../assets/images/home/title_belief.png" class="main-title">
+            </div>
+        </div>
+
+        <div class="visual-btns-layer">
+            <img src="../../assets/images/home/btn_traffic.png" class="btn-visual" id="btn-visual-traffic">
+            <img src="../../assets/images/home/btn_trade.png" class="btn-visual" id="btn-visual-trade">
+            <img src="../../assets/images/home/btn_social.png" class="btn-visual" id="btn-visual-social">
+            <img src="../../assets/images/home/btn_belief.png" class="btn-visual" id="btn-visual-belief">
+        </div>
+
+        <div class="hitbox-nav">
+            <div class="hitbox" data-target="traffic"></div>
+            <div class="hitbox" data-target="trade"></div>
+            <div class="hitbox" data-target="social"></div>
+            <div class="hitbox" data-target="belief"></div>
+        </div>
+
+    </div>
+
+    <script src="../../js/home.js"></script>
+</body>
+</html>

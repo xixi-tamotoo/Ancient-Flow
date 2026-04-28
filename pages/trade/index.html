@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>商业与贸易 - 津梁万象</title>
+    <link rel="stylesheet" href="../../css/trade_1.css">
+    <link rel="stylesheet" href="../../css/trade_2.css">
+    <link rel="stylesheet" href="../../css/nav.css">
+    <link rel="stylesheet" href="../../css/quiz.css">
+    <style>
+        body, html { margin: 0; padding: 0; overflow-x: hidden; background-color: #9c3b31; }
+        .scroll-section { position: relative; width: 100vw; min-height: 100vh; overflow: hidden; }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+</head>
+<body>
+    <nav class="global-nav">
+        <div class="nav-links">
+            <a href="../home/index.html">首页</a>
+            <span class="nav-divider">|</span>
+            <a href="../traffic/index.html">交通与连接</a>
+            <span class="nav-divider">|</span>
+            <a href="../trade/index.html" class="active">商业与贸易</a>
+            <span class="nav-divider">|</span>
+            <a href="../social/index.html">社交与生活</a>
+            <span class="nav-divider">|</span>
+            <a href="../belief/index.html">民俗与信仰</a>
+        </div>
+
+        <div class="nav-controls">
+            <audio id="bg-music" loop src="../../assets/audio/bgm.mp3"></audio>
+            <button id="music-toggle" class="music-btn">
+                <span class="music-icon">🎵</span> 音效
+            </button>
+        </div>
+    </nav>
+
+    <section id="section-trade-1" class="scroll-section">
+        <div class="stage-container" id="trade-part-1">
+            <img src="../../assets/images/trade/背景.png" class="bg-img" alt="红色背景">
+
+            <div class="bridge-group">
+                <img src="../../assets/images/trade/空桥.png" class="bridge empty-bridge" alt="空桥">
+                <img src="../../assets/images/trade/满桥.png" class="bridge full-bridge" alt="满桥">
+                <img src="../../assets/images/trade/暗桥.png" class="bridge dark-bridge" alt="暗桥">
+
+                <img src="../../assets/images/trade/茶叶.png" class="item-hl hl-tea" alt="茶叶">
+                <img src="../../assets/images/trade/丝绸.png" class="item-hl hl-silk" alt="丝绸">
+                <img src="../../assets/images/trade/盐.png" class="item-hl hl-salt" alt="盐">
+                <img src="../../assets/images/trade/瓷器.png" class="item-hl hl-porcelain" alt="瓷器">
+
+                <div class="hotspots-container">
+                    <div class="hotspot-btn" data-target="tea" style="top: 50%; left: 18%;">
+                        <img src="../../assets/images/trade/悬停按键.png" alt="按键">
+                    </div>
+                    <div class="hotspot-btn" data-target="silk" style="top: 72%; left: 35%;">
+                        <img src="../../assets/images/trade/悬停按键.png" alt="按键">
+                    </div>
+                    <div class="hotspot-btn" data-target="salt" style="top: 20%; left: 51%;">
+                        <img src="../../assets/images/trade/悬停按键.png" alt="按键">
+                    </div>
+                    <div class="hotspot-btn" data-target="porcelain" style="top: 73%; left: 63%;">
+                        <img src="../../assets/images/trade/悬停按键.png" alt="按键">
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-group">
+                <div class="text-block text-1">
+                    <h2>因桥而兴</h2>
+                    <p>一座桥，往往能兴盛一座镇。江河因桥而通途，商旅因桥而汇聚，桥市因商而繁荣。南来北往的货物在此中转，四方百姓与客商在此交易，日复一日，桥边从零星摊位变成热闹集市，从简易渡口发展成商铺林立、市井繁华的集镇。</p>
+                </div>
+                <div class="text-block text-2">
+                    <h2>水陆汇聚的桥市</h2>
+                    <p>桥梁、渡口作为水陆交通的汇聚点，是“舟车所聚，四方商贾孔道”之地，因交通便利而在桥上、桥头或桥梁、渡口附近区域产生商业交易行为，乃顺理成章之事。随着交易时间、空间的相对规律，在桥梁的附近区域会形成一个固定的贸易场所，这就是“桥市”。</p>
+                </div>
+
+                <div class="text-block text-hover text-tea">
+                    <h2>南茶北运</h2>
+                    <p>茶叶主产于我国南方丘陵与温润地区，是古代最重要的民生商品之一。在运输过程中，茶叶多依靠水路经桥梁、渡口转运北上，逐步进入北方市场与游牧地区。茶叶不仅改变了北方民众的饮食结构与生活习惯，更衍生出丰富的茶文化、茶礼仪，成为跨地域文化交流的重要符号。</p>
+                </div>
+                <div class="text-block text-hover text-silk">
+                    <h2>丝路枢纽</h2>
+                    <p>丝绸工艺精湛、质地华美，在世界商贸史上占据极高地位。丝绸通过内陆商路、水路渡口与陆上丝绸之路流通，远销西域与欧洲各国，成为东西方文化交流的标志性物产。</p>
+                </div>
+                <div class="text-block text-hover text-salt">
+                    <h2>国家命脉</h2>
+                    <p>盐与铁则是古代国家经济的命脉物资，二者通过固定商路与渡口转运全国，不仅支撑着国家财政收入，更深刻影响着国家经济稳定与天下百姓的日常生活。</p>
+                </div>
+                <div class="text-block text-hover text-porcelain">
+                    <h2>出海瓷器</h2>
+                    <p>瓷器以细腻质地、精美纹饰与实用功能著称，是古代海外贸易与国内流通的核心商品，经由水路商路远销海内外，成为“中国”的文化象征。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="section-trade-2" class="scroll-section">
+        <div class="stage-container" id="trade-part-2">
+            <div class="bg-red"></div>
+
+            <img src="../../assets/images/trade/云1.png" class="cloud cloud-left" alt="左侧云">
+            <img src="../../assets/images/trade/云2.png" class="cloud cloud-right" alt="右侧云">
+
+            <div class="bridges-wrapper">
+                <div class="bridge-circle" data-target="ba">
+                    <img src="../../assets/images/trade/灞桥.png" alt="灞桥">
+                </div>
+                <div class="bridge-circle" data-target="wansui">
+                    <img src="../../assets/images/trade/万岁桥.png" alt="万岁桥">
+                </div>
+                <div class="bridge-circle" data-target="bianhe">
+                    <img src="../../assets/images/trade/汴河桥.png" alt="汴河桥">
+                </div>
+                <div class="bridge-circle" data-target="tianjin">
+                    <img src="../../assets/images/trade/天津桥.png" alt="天津桥">
+                </div>
+            </div>
+
+            <div class="info-board">
+                <div class="info-content info-default show-info">
+                    <h2>因水而商 · 桥市繁华</h2>
+                    <p>古代商业繁荣多依傍水陆枢纽。云开雾散间，透过这四座传世名桥，仿佛能窥见千年前商贾云集、市井喧嚣的繁华岁月。</p>
+                </div>
+                <div class="info-content info-ba">
+                    <h2>长安 灞州桥市</h2>
+                    <p>灞桥位于长安城东，为关东出入京师要道。桥侧形成以车马停歇、食宿、货物中转为主的桥市，服务官民行旅与物资转运，是长安外围重要交通型桥市。</p>
+                </div>
+                <div class="info-content info-wansui">
+                    <h2>扬州 万岁桥市</h2>
+                    <p>扬州为唐代东南大都会，城内桥梁密集，万岁桥等桥头多形成桥市。以水路商贸为依托，夜市、晓市兴盛，是江南都城型桥市的典型代表。</p>
+                </div>
+                <div class="info-content info-bianhe">
+                    <h2>汴州 汴河桥市</h2>
+                    <p>汴州扼漕运咽喉，汴河上诸桥附近均形成桥市。以漕运物资、南北杂货交易为主，商业繁盛，为北宋东京桥市全面繁荣奠定了基础。</p>
+                </div>
+                <div class="info-content info-tianjin">
+                    <h2>洛阳 天津桥市</h2>
+                    <p>天津桥横跨洛水，连接隋唐洛阳城南北。桥头商贾云集，店铺林立，不仅有中原百货，更有西域胡商在此交易，是国际化都城水陆交通与商业中心。</p>
+                </div>
+            </div>
+            
+            <button id="quiz-trigger" class="quiz-trigger-btn">随堂雅集</button>
+
+        </div>
+    </section>
+
+    <div id="quiz-modal" class="quiz-modal">
+        <div class="quiz-content theme-trade">
+            <button class="quiz-close" id="quiz-close">×</button>
+            <div class="quiz-header">学问初试</div>
+            <div id="quiz-body">
+                <div class="quiz-question" id="q-text">题目加载中...</div>
+                <div class="quiz-options" id="q-options"></div>
+                <button class="quiz-action-btn" id="q-submit" disabled>提交作答</button>
+                <div class="quiz-feedback" id="q-feedback"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../js/trade_main.js"></script>
+</body>
+</html>
